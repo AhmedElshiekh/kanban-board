@@ -24,11 +24,11 @@ class UpdateMemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'     => 'required|string|max:255',
-            'title'    => 'required|string|max:255',
-            'age'      => 'required|integer|min:1',
-            'email'    => 'required|string|email|max:255|unique:members,email,' . $this->member->id,
-            'phone'    => 'required|string|max:255|unique:members,phone,' . $this->member->id,
+            'name'     => 'nullable|string|max:255',
+            'title'    => 'nullable|string|max:255',
+            'age'      => 'nullable|integer|min:1',
+            'email'    => 'nullable|string|email|max:255|unique:members,email,' . $this->member->id,
+            'phone'    => 'nullable|string|max:255|unique:members,phone,' . $this->member->id,
             'status'   => ['nullable', 'string', Rule::in(Status::statusList())],
         ];
     }

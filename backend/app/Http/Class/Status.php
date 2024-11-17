@@ -13,9 +13,6 @@ class Status
      */
     public static function statusList(): array
     {
-        // Get all the statuses using the enum
-        EnumsStatus::cases();
-
         // Return the value of each status
         return array_column(EnumsStatus::cases(), 'name');
     }
@@ -27,9 +24,6 @@ class Status
      */
     public static function statusCodes(): array
     {
-        // Get all the statuses using the enum
-        EnumsStatus::cases();
-
         // Return the value of each status
         return array_column(EnumsStatus::cases(), 'value');
     }

@@ -9,6 +9,7 @@ use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Http\Resources\MemberResource;
 use App\Models\Member;
+use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
@@ -84,13 +85,14 @@ class MemberController extends Controller
     public function update(UpdateMemberRequest $request, Member $member)
     {
         $member->update([
-            'name'      => $request->name,
-            'title'     => $request->title,
-            'age'       => $request->age,
-            'email'     => $request->email,
-            'phone'     => $request->phone,
+            'name'      => $request->name ?? $member->name,
+            'title'     => $request->title ?? $member->title,
+            'age'       => $request->age ?? $member->age,
+            'email'     => $request->email ?? $member->email,
+            'phone'     => $request->phone ?? $member->phone,
             'status'    => $request->status ? Status::getCode($request->status) : $member->status,
         ]);
+
 
         return new MessageResponse(
             message: 'Update member successfully',
