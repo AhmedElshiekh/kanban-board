@@ -57,10 +57,18 @@ const Form:React.FC<FormProps> = ({ onSubmit }) => {
             'Content-Type': 'application/json'
           }
         });
-        console.log(response.data);
+        onSubmit(formData);
+        setFormData({
+          name: '',
+          title: '',
+          age: '',
+          email: '',
+          phone: ''
+        });
+        setErrors({});
 
       } catch (error) {
-        setErrors(error.response.data.errors);
+        setErrors(error.response?.data?.errors || {});
       }
     }
   };

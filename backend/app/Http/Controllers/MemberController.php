@@ -19,9 +19,10 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Member::all();
+        $data = $request->status ? Member::where('status', Status::getCode($request->status))->get()
+                :Member::all();
 
         return new MessageResponse(
             message: 'Get all members',

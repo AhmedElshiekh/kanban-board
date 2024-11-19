@@ -58,7 +58,7 @@ class Status
     public static function getName(string $code): string
     {
         // Retrieve the status name using the given code from the EnumsStatus
-        $name = EnumsStatus::from($code)->name;
+        $name = EnumsStatus::from($code)?->name;
 
         // Return the status name
         return $name;

@@ -42,7 +42,7 @@ const App = () =>{
             />
             <Card 
               title='Send to Therapists'
-              status='SendToTherapists'
+              status='SendToTherapist'
               // count={1}
             />
 
