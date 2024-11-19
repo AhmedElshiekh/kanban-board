@@ -2,7 +2,6 @@
 namespace App\Enums;
 enum Status: string
 {
-
     // new cases
     case Unclaimed = 'unclaimed';
     // operations team contacts the member
@@ -11,7 +10,6 @@ enum Status: string
     case PreparingWorkOffer = 'work_offer';
     // matched with a therapist
     case SendToTherapist = 'send_therapist';
-
 
     /**
      * Return the default status.
